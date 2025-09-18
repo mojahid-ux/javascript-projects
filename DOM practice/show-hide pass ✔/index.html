@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/hide password - mojahid</title>
+    <style>
+        .active {
+            background-color: rgb(105, 218, 105);
+            color: rgb(29, 31, 26);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Show or hide the password</h1>
+    <form>
+        <input type="password" placeholder="Enter the password"><button class="active deactive">Show</button>
+    </form>
+    
+
+
+    <script>
+        let inp = document.querySelector("input");
+        let showAndHideBtn = document.querySelector("button");
+        
+        showAndHideBtn.addEventListener("click", function(a) {
+            a.preventDefault();
+            if(inp.type === "password") {
+                inp.type = "text";
+                showAndHideBtn.innerText = "Hide";
+            }else {
+                inp.type = "password";
+                showAndHideBtn.textContent = "show";
+            }
+            showAndHideBtn.classList.toggle("active");
+
+        })
+
+    </script>
+</body>
+</html>

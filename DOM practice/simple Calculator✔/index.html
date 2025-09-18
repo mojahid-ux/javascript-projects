@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins' sans-serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calc-container {
+            border: 1px solid;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.438);
+            width: 310px;
+            height: 71vh;
+            background-color: rgb(173, 167, 167);
+            border-radius: 15px;
+            overflow: hidden;
+
+        }
+
+        .input-show {
+            width: 100%;
+            height: 15vh;
+            background: linear-gradient(45deg, #2c3e50, #34495e, #16a085, #1abc9c);
+            /* Darker gradient */
+            background-size: 400% 400%;
+            animation: darkGradientMove 12s ease infinite;
+            /* Smooth animation */
+            color: white;
+            font-size: 40px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 20px;
+            word-wrap: break-word;
+            box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 255, 255, 0.3);
+            /* Glowing shadow */
+            border: none;
+        }
+
+        /* Animation for the gradient effect */
+        @keyframes darkGradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 2fr);
+            grid-template-rows: repeat(5, 1fr);
+            margin-top: 5px;
+            gap: 5px;
+            /* 4 columns: 3 numbers, 1 operator */
+        }
+
+        .btn-num,
+        .btn-op {
+            padding: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 100%;
+            background: linear-gradient(145deg, #4e9fcd, #3485b3);
+            color: white;
+        }
+
+        .btn-op:hover {
+            background: linear-gradient(145deg, #3485b3, #1e6a8c);
+            /* Darker gradient on hover */
+            transform: translateY(-2px);
+            /* Slight lift effect */
+        }
+
+        .btn-op:active {
+            background: linear-gradient(145deg, #1e6a8c, #347b9e);
+            /* Even darker gradient on active */
+            transform: translateY(2px);
+            /* Slight press effect */
+        }
+
+        .zero {
+            grid-column: span 2;
+            /* "0" takes two columns */
+        }
+
+        button:hover {
+            background-color: rgb(61, 58, 58);
+        }
+
+        button {
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(128, 126, 126);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button:active {
+            background-color: #7a7a7a;
+            transform: translateY(2px);
+        }
+
+        button:hover {
+            background-color: #5a5a5a;
+            transform: translateY(-2px);
+        }
+
+        .clear,
+        .single-clear {
+            background-color: #ff4c4c;
+            color: white;
+        }
+
+        .clear:hover,
+        .single-clear:hover {
+            background-color: #ff2a2a;
+        }
+
+        .clear:active,
+        .single-clear:active {
+            background-color: #ff1212;
+        }
+
+        .btn-equals {
+            background-color: #38a1db;
+            color: white;
+            grid-column: span 1;
+            font-size: 1.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calc-container">
+        <div class="input-show"></div>
+        <div class="buttons-grid">
+            <!-- Number Buttons -->
+            <button class="clear">AC</button>
+            <button class="single-clear">CE</button>
+            <button class="one-clear">cle</button>
+            <button class="btn-op">÷</button>
+
+            <button class="btn-num">7</button>
+            <button class="btn-num">8</button>
+            <button class="btn-num">9</button>
+
+            <button class="btn-op">×</button>
+            <button class="btn-num">4</button>
+            <button class="btn-num">5</button>
+            <button class="btn-num">6</button>
+
+            <button class="btn-op">−</button>
+            <button class="btn-num">1</button>
+            <button class="btn-num">2</button>
+            <button class="btn-num">3</button>
+            <button class="btn-op">+</button>
+
+
+            <!-- Make 0 span two columns -->
+            <button class="btn-num zero">0</button>
+            <button class="dot btn-num">.</button>
+            <button class="btn-equals">=</button>
+        </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

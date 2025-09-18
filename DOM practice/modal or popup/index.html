@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+        .display {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup {
+            width: 30%;
+            height: 35%;
+            border-radius: 10px;
+            font-size: 12px;
+            display: none; /* Only use CSS for visibility */
+            flex-direction: column;
+            align-items: center;
+            padding: 5px; /* Fixed missing semicolon */
+            box-shadow: 5px 0 10px rgb(90, 90, 90);
+            animation-name: popup;
+            animation-timing-function: cubic-bezier(1, 0, 0, 1);
+            animation-duration: 0.2s;
+            animation-iteration-count: 1;
+            transition: 0.3s;
+            background-image: linear-gradient(to right, rgb(34, 33, 33), rgb(66, 65, 65), rgb(122, 122, 122));
+        } 
+        .popup.show {
+            display: flex;
+            animation-name: popup;
+        }
+        @keyframes popup {
+            0% {
+                transform: scale(1);
+                transition: 0.5s;
+            }
+            50% {
+                transform: scale(1.1);
+                transition: 0.5s;
+            }
+            100%{
+                transform: scale(1);
+                transition: 0.5s;
+            }
+        }
+        .popup p{
+            margin-top: 25px;
+            font-size: 25px;
+
+        }
+        .close{
+            padding: 10px 25px;
+            border-radius: 15px;
+            border: none;
+            margin-top: 30px;
+            background-image: linear-gradient(to right, rgb(95, 94, 94), rgb(53, 51, 51), rgb(58, 54, 54));
+            box-shadow: 0 0 15px rgb(85, 84, 84);
+            cursor: pointer;
+        }
+        button:hover{
+            box-shadow: 0 0 10px rgb(122, 122, 122);
+            
+        }
+        .popup:hover {
+            box-shadow: 5px 0 15px rgb(51, 50, 50);
+            transform: scale(1.02);
+            transition: 0.3s transform;
+        }
+        .pop-btn{
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            background-image: linear-gradient(to right, rgb(95, 94, 94), rgb(53, 51, 51), rgb(58, 54, 54));
+            border: none;
+            box-shadow: 0 0 15px rgb(66, 65, 65);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="display">
+        <div class="popup" id="popup">
+            <h1>Hello this is the modal</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint expedita harum molestiae cumque? Laborum, quaerat.</p>
+            <button class="close" id="close-btn">close</button>
+        </div>
+        <button class="pop-btn" id="pop-btn">Show Pop Up</button>
+    </div>
+
+    <script>
+    // JS to show/hide popup
+    const popup = document.getElementById('popup');
+    const showBtn = document.getElementById('pop-btn');
+    const closeBtn = document.getElementById('close-btn');
+
+    showBtn.addEventListener('click', () => {
+        popup.classList.add('show');
+        showBtn.style.display = "none";
+    });
+
+    closeBtn.addEventListener('click', () => {
+        popup.classList.remove('show');
+        showBtn.style.display = "inline-block";
+    });
+
+    </script>
+</body>
+</html>
